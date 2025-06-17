@@ -81,7 +81,11 @@
         <div class="product-card">
           <img src="https://via.placeholder.com/150" alt="Rayze OS" />
           <h3>Rayze OS</h3><p>Lightning-fast UI with Aero revival style.</p>
-          <a href="#" class="glow-btn small">Download</a>
+          <form id="notifyForm" onsubmit="handleNotify(event)" class="email-form">
+  <input type="email" id="notifyEmail" placeholder="Enter your email" required />
+  <button type="submit" class="glow-btn">Get Notified</button>
+</form>
+<p id="confirmation" class="confirmation-text">You're on the list.</p>
         </div>
       </div>
     </details>
