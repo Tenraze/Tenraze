@@ -5,12 +5,12 @@
 }
 
 body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #121212;
+  color: #f0f0f0;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  font-family: sans-serif;
   scroll-behavior: smooth;
-  background: #121212;
-  color: white;
 }
 
 section {
@@ -20,14 +20,17 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
   text-align: center;
+  padding: 2rem;
 }
 
 .hero {
-  background: url('https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=1950&q=80') center/cover fixed;
-  color: white;
+  background: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
   position: relative;
+}
+
+.hero .content {
+  z-index: 2;
 }
 
 .scroll-hint {
@@ -35,6 +38,7 @@ section {
   bottom: 2rem;
   font-size: 2rem;
   animation: bounce 1s infinite;
+  color: #888;
 }
 
 @keyframes bounce {
@@ -43,41 +47,66 @@ section {
 }
 
 .feature {
-  background-color: #1e1e1e;
-}
-
-.feature.one {
-  background: linear-gradient(120deg, #2e2e2e, #121212);
-}
-
-.feature.two {
-  background: linear-gradient(120deg, #121212, #2e2e2e);
+  background: #1e1e1e;
+  border-top: 1px solid #333;
 }
 
 .notify {
-  background: #202020;
-}
-
-input, button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  font-size: 1rem;
-}
-
-input {
-  width: 250px;
-  max-width: 80%;
-}
-
-button {
-  background-color: steelblue;
-  color: white;
-  cursor: pointer;
+  background: #181818;
 }
 
 footer {
-  padding: 1rem;
   background: #0f0f0f;
+  padding: 1rem;
   font-size: 0.9rem;
+  color: #777;
+}
+
+/* Email Input + Liquid Glass Button */
+.form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input[type="email"] {
+  padding: 0.75rem 1rem;
+  width: 250px;
+  background: #1a1a1a;
+  border: 1px solid #444;
+  color: #fff;
+  outline: none;
+  border-radius: 8px;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.05), inset 0 0 8px rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255,255,255,0.1), inset 0 0 12px rgba(255,255,255,0.15);
+}
+
+/* Reveal Animation */
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
