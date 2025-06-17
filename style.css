@@ -1,10 +1,11 @@
-/* ==== RESET & BASE ==== */
+/* ==== RESET ==== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ==== BASE ==== */
 body {
   background: #121212;
   font-family: 'Segoe UI', sans-serif;
@@ -22,23 +23,24 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1000;
+  z-index: 999;
   box-shadow: 0 2px 12px rgba(255, 255, 255, 0.08);
 }
 
 .nav-logo {
-  color: white;
+  color: #fff;
   font-size: 1.4rem;
   font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: none;
   letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .nav-links a {
-  margin-left: 1.5rem;
   color: #bbb;
+  margin-left: 1.5rem;
   text-decoration: none;
+  font-size: 1rem;
   transition: color 0.3s;
 }
 
@@ -48,25 +50,24 @@ body {
 
 /* ==== HERO ==== */
 .hero {
+  height: 100vh;
+  background: radial-gradient(ellipse at center, #1a1a1a 0%, #0e0e0e 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   text-align: center;
   padding-top: 5rem;
-  position: relative;
-  background: radial-gradient(ellipse at center, #1a1a1a 0%, #0e0e0e 100%);
 }
 
 .logo {
-  width: 160px;
+  width: 180px;
   height: auto;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .glow {
-  filter: drop-shadow(0 0 20px white);
+  filter: drop-shadow(0 0 25px white);
 }
 
 .tagline {
@@ -119,8 +120,6 @@ h2 {
 /* ==== PRODUCTS ==== */
 .dropdown {
   margin-bottom: 1.5rem;
-  border: none;
-  background: transparent;
 }
 
 .dropdown summary {
@@ -130,12 +129,12 @@ h2 {
   cursor: pointer;
   color: white;
   font-size: 1.2rem;
-  transition: background 0.3s;
   list-style: none;
+  transition: background 0.3s ease;
 }
 
 .dropdown[open] summary {
-  background: #333;
+  background: #3a3a3a;
 }
 
 .dropdown-content {
@@ -151,6 +150,7 @@ h2 {
   border-radius: 8px;
   text-align: center;
   flex: 1 1 200px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.03);
 }
 
 .product-card img {
@@ -179,31 +179,6 @@ h2 {
   50% { opacity: 0.7; }
 }
 
-/* ==== BUTTONS ==== */
-.glow-btn {
-  padding: 0.8rem 1.4rem;
-  border: none;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.05);
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(255,255,255,0.3);
-  backdrop-filter: blur(6px);
-  transition: background 0.3s ease, transform 0.2s;
-}
-
-.glow-btn:hover {
-  background: rgba(255,255,255,0.15);
-  transform: scale(1.05);
-}
-
-.glow-btn.small {
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-}
-
-/* ==== EMAIL FORM ==== */
 .email-form {
   display: flex;
   flex-direction: column;
@@ -247,6 +222,30 @@ h2 {
 @keyframes fadein {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* ==== BUTTONS ==== */
+.glow-btn {
+  padding: 0.8rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.glow-btn:hover {
+  background: rgba(255,255,255,0.15);
+  transform: scale(1.05);
+}
+
+.glow-btn.small {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
 }
 
 /* ==== SCROLL FADE ==== */
