@@ -81,11 +81,7 @@
         <div class="product-card">
           <img src="https://via.placeholder.com/150" alt="Rayze OS" />
           <h3>Rayze OS</h3><p>Lightning-fast UI with Aero revival style.</p>
-          <form id="notifyForm" onsubmit="handleNotify(event)" class="email-form">
-  <input type="email" id="notifyEmail" placeholder="Enter your email" required />
-  <button type="submit" class="glow-btn">Get Notified</button>
-</form>
-<p id="confirmation" class="confirmation-text">You're on the list.</p>
+          <a href="#" class="glow-btn small">Download</a>
         </div>
       </div>
     </details>
@@ -96,7 +92,12 @@
     <div class="notify-panel">
       <h2 class="pulse-title">Get Notified</h2>
       <p class="sub">Be the first to know when Tenraze drops new gear.</p>
-      <a href="#" class="glow-btn">Count Me In</a>
+
+      <form id="notifyForm" onsubmit="handleNotify(event)" class="email-form">
+        <input type="email" id="notifyEmail" placeholder="Enter your email" required />
+        <button type="submit" class="glow-btn">Count Me In</button>
+      </form>
+      <p id="confirmation" class="confirmation-text">You're on the list.</p>
     </div>
   </section>
 
@@ -118,7 +119,7 @@
       });
     });
 
-    // Smooth scrolling for navbar
+    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -127,6 +128,15 @@
         });
       });
     });
+
+    // Email confirmation logic
+    function handleNotify(event) {
+      event.preventDefault();
+      const email = document.getElementById('notifyEmail').value;
+      document.getElementById('confirmation').style.display = 'block';
+      console.log("New subscriber:", email);
+      document.getElementById('notifyForm').reset();
+    }
   </script>
 
 </body>
