@@ -13,6 +13,7 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Scroll snap sections */
 section {
   height: 100vh;
   scroll-snap-align: start;
@@ -22,15 +23,38 @@ section {
   align-items: center;
   text-align: center;
   padding: 2rem;
-}
-
-.hero {
-  background: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
   position: relative;
 }
 
-.hero .content {
-  z-index: 2;
+/* Hero Section */
+.hero {
+  background: radial-gradient(ellipse at center, #1a1a1a 0%, #0d0d0d 100%);
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 20px);
+  pointer-events: none;
+}
+
+.logo {
+  width: 130px;
+  max-width: 25vw;
+  margin-bottom: 1rem;
+  animation: fadeIn 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.glow {
+  filter: drop-shadow(0 0 12px #00ffff);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 .scroll-hint {
@@ -46,23 +70,26 @@ section {
   50% { transform: translateY(10px); }
 }
 
-.feature {
-  background: #1e1e1e;
-  border-top: 1px solid #333;
-}
-
-.notify {
+/* Other Sections */
+.mission,
+.specs,
+.coming-soon {
   background: #181818;
+  border-top: 1px solid #2a2a2a;
 }
 
-footer {
-  background: #0f0f0f;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #777;
+.specs ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
 }
 
-/* Email Input + Liquid Glass Button */
+.specs li {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+/* Notify Form */
 .form {
   margin-top: 1.5rem;
   display: flex;
@@ -72,7 +99,7 @@ footer {
 
 input[type="email"] {
   padding: 0.75rem 1rem;
-  width: 250px;
+  width: 260px;
   background: #1a1a1a;
   border: 1px solid #444;
   color: #fff;
@@ -89,14 +116,14 @@ button {
   color: #fff;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 0 10px rgba(255,255,255,0.05), inset 0 0 8px rgba(255,255,255,0.1);
+  box-shadow: 0 0 10px rgba(0,255,255,0.05), inset 0 0 8px rgba(0,255,255,0.1);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 15px rgba(255,255,255,0.1), inset 0 0 12px rgba(255,255,255,0.15);
+  background: rgba(0, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(0,255,255,0.2), inset 0 0 12px rgba(0,255,255,0.15);
 }
 
 /* Reveal Animation */
@@ -109,4 +136,12 @@ button:hover {
 .visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Footer */
+footer {
+  background: #0f0f0f;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #777;
 }
