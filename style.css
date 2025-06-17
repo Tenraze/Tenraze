@@ -6,63 +6,50 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #121212;
+  background: #0e0e0e;
   color: #f0f0f0;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
   scroll-behavior: smooth;
 }
 
-/* Scroll snap sections */
 section {
-  height: 100vh;
-  scroll-snap-align: start;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 4rem 2rem;
   text-align: center;
-  padding: 2rem;
   position: relative;
 }
 
-/* Hero Section */
+/* HERO */
 .hero {
-  background: radial-gradient(ellipse at center, #1a1a1a 0%, #0d0d0d 100%);
+  background: radial-gradient(ellipse at center, #121212 0%, #0b0b0b 100%);
+  position: relative;
   overflow: hidden;
 }
 
-.overlay {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 20px);
-  pointer-events: none;
-}
-
 .logo {
-  width: 130px;
-  max-width: 25vw;
+  width: 200px;
   margin-bottom: 1rem;
-  animation: fadeIn 1.2s ease-out forwards;
   opacity: 0;
+  animation: fadeIn 1s ease forwards;
 }
 
-.glow {
-  filter: drop-shadow(0 0 12px #00ffff);
+.glow-large {
+  filter: drop-shadow(0 0 20px white);
 }
 
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+  to { opacity: 1; }
 }
 
 .scroll-hint {
   position: absolute;
   bottom: 2rem;
   font-size: 2rem;
+  color: #aaa;
   animation: bounce 1s infinite;
-  color: #888;
 }
 
 @keyframes bounce {
@@ -70,26 +57,86 @@ section {
   50% { transform: translateY(10px); }
 }
 
-/* Other Sections */
-.mission,
-.specs,
-.coming-soon {
+/* OVERLAY GRID */
+.metal-overlay {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 30px);
+  pointer-events: none;
+}
+
+/* SECTION GRADIENT BLENDS */
+.gradient-top::before,
+.gradient-mid::before,
+.gradient-bottom::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+  z-index: 1;
+}
+
+.gradient-mid::after,
+.gradient-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+  z-index: 1;
+}
+
+/* FEATURE CARDS */
+.features {
   background: #181818;
-  border-top: 1px solid #2a2a2a;
 }
 
-.specs ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 1rem;
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
-.specs li {
-  margin: 0.5rem 0;
-  font-size: 1.1rem;
+.card {
+  background: #1a1a1a;
+  padding: 2rem;
+  border: 1px solid #333;
+  border-radius: 12px;
+  width: 280px;
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.03);
+  transition: all 0.3s ease;
 }
 
-/* Notify Form */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.08), inset 0 0 20px rgba(255,255,255,0.05);
+}
+
+/* HARDWARE IMAGE SECTION */
+.visuals {
+  background: #141414;
+}
+
+.hardware-img {
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem 0;
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(255,255,255,0.05);
+}
+
+/* FORM */
+.notify {
+  background: #101010;
+}
+
 .form {
   margin-top: 1.5rem;
   display: flex;
@@ -103,7 +150,6 @@ input[type="email"] {
   background: #1a1a1a;
   border: 1px solid #444;
   color: #fff;
-  outline: none;
   border-radius: 8px;
 }
 
@@ -112,33 +158,20 @@ button {
   font-size: 1rem;
   border: none;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
   color: #fff;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 0 10px rgba(0,255,255,0.05), inset 0 0 8px rgba(0,255,255,0.1);
+  box-shadow: 0 0 10px rgba(255,255,255,0.05), inset 0 0 8px rgba(255,255,255,0.1);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 button:hover {
-  background: rgba(0, 255, 255, 0.15);
-  box-shadow: 0 0 20px rgba(0,255,255,0.2), inset 0 0 12px rgba(0,255,255,0.15);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2), inset 0 0 12px rgba(255,255,255,0.15);
 }
 
-/* Reveal Animation */
-.hidden {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease-out;
-}
-
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Footer */
+/* FOOTER */
 footer {
   background: #0f0f0f;
   padding: 1rem;
