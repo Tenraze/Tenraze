@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+  background: #121212;
+  color: white;
+}
+
+section {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero {
+  background: url('https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=1950&q=80') center/cover fixed;
+  color: white;
+  position: relative;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 2rem;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+.feature {
+  background-color: #1e1e1e;
+}
+
+.feature.one {
+  background: linear-gradient(120deg, #2e2e2e, #121212);
+}
+
+.feature.two {
+  background: linear-gradient(120deg, #121212, #2e2e2e);
+}
+
+.notify {
+  background: #202020;
+}
+
+input, button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-size: 1rem;
+}
+
+input {
+  width: 250px;
+  max-width: 80%;
+}
+
+button {
+  background-color: steelblue;
+  color: white;
+  cursor: pointer;
+}
+
+footer {
+  padding: 1rem;
+  background: #0f0f0f;
+  font-size: 0.9rem;
+}
