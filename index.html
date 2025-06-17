@@ -2,7 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tenraze – Built to Last</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="#hero" class="nav-logo">Tenraze</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#products">Products</a>
+      <a href="#notify">Notify</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="hero">
+    <img src="IMG_4636.png" alt="Tenraze Logo" class="logo glow" />
+    <h1 class="tagline">Built to Last. Forged in Steel.</h1>
+  </header>
+
+  <section class="about scroll-fade" id="about">
+    <h2>Welcome to Tenraze</h2>
+    <p>Tenraze crafts elite hardware and custom OS tools built for creators, builders, and visionaries. Precision. Power. Purpose.</p>
+  </section>
+
+  <section class="features scroll-fade" id="features">
+    <h2>Core Philosophy</h2>
+    <div class="grid">
+      <div class="card"><h3>Steel Integrity</h3><p>Every product is engineered for strength, durability, and style.</p></div>
+      <div class="card"><h3>Creator-Focused</h3><p>Optimized UX meets high-end power. Nothing unnecessary.</p></div>
+      <div class="card"><h3>Upgradeable</h3><p>Designed to evolve. Modularity built in from day one.</p></div>
+    </div>
+  </section>
+
+  <section class="products scroll-fade" id="products">
+    <h2 class="section-title">Explore Our Gear</h2>
+    <p class="section-sub">Click to expand and dive into the lineup.</p>
+
+    <details class="dropdown">
+      <summary>🧠 Keyboards</summary>
+      <div class="dropdown-content">
+        <div class="product-card">
+          <img src="https://via.placeholder.com/150" alt="Blade K1" />
+          <h3>Blade K1</h3><p>Low-profile, full RGB, aircraft steel housing.</p>
+        </div>
+        <div class="product-card">
+          <img src="https://via.placeholder.com/150" alt="Striker KX" />
+          <h3>Striker KX</h3><p>Hot-swappable keys, matte black frame, smooth glide keys.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>🧊 Cases</summary>
+      <div class="dropdown-content">
+        <div class="product-card">
+          <img src="https://via.placeholder.com/150" alt="Core Tower" />
+          <h3>Core Tower</h3><p>Mid-size chassis with dynamic airflow steel vents.</p>
+        </div>
+        <div class="product-card">
+          <img src="https://via.placeholder.com/150" alt="Edge Case" />
+          <h3>Edge Case</h3><p>Slim vertical with magnetic shielding and LED stripes.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>💻 Rayze OS</summary>
+      <div class="dropdown-content">
+        <div class="product-card">
+          <img src="https://via.placeholder.com/150" alt="Rayze OS" />
+          <h3>Rayze OS</h3><p>Lightning-fast UI with Aero revival style.</p>
+          <a href="#" class="glow-btn small">Download</a>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section class="notify scroll-fade" id="notify">
+    <div class="notify-panel">
+      <h2 class="pulse-title">Get Notified</h2>
+      <p class="sub">Be the first to know when Tenraze drops new gear.</p>
+
+      <form id="notifyForm" onsubmit="handleNotify(event)" class="email-form">
+        <input type="email" id="notifyEmail" placeholder="Enter your email" required />
+        <button type="submit" class="glow-btn">Count Me In</button>
+      </form>
+      <p id="confirmation" class="confirmation-text">You're on the list.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Tenraze — Built to Last. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const fadeEls = document.querySelectorAll('.scroll-fade');
+    window.addEventListener('scroll', () => {
+      fadeEls.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    function handleNotify(event) {
+      event.preventDefault();
+      const email = document.getElementById('notifyEmail').value;
+      document.getElementById('confirmation').style.display = 'block';
+      document.getElementById('notifyForm').reset();
+    }
+  </script>
+
+</body>
+</html> name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tenraze – Built to Last</title>
   <link rel="stylesheet" href="style.css" />
 </head>
