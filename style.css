@@ -5,75 +5,80 @@
 }
 
 body {
-  background: #0e0e0e;
+  background: #0d0d0d;
   color: #f0f0f0;
   font-family: 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
 }
 
-section {
+section, header {
   padding: 6rem 2rem;
   text-align: center;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #ccc;
 }
 
 /* HERO */
 .hero {
   min-height: 100vh;
+  background: radial-gradient(ellipse at center, #121212, #050505);
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(ellipse at center, #121212, #050505);
-  position: relative;
   overflow: hidden;
 }
 
 .logo {
   width: 240px;
-  max-width: 50vw;
-  max-height: 220px;
-  margin-bottom: 1rem;
+  max-width: 60vw;
   object-fit: contain;
-  animation: fadeIn 1.2s ease-out forwards;
-  opacity: 0;
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 0 20px white) drop-shadow(0 0 40px rgba(255,255,255,0.3));
 }
 
-.glow {
-  filter: drop-shadow(0 0 30px white) drop-shadow(0 0 60px rgba(255,255,255,0.3));
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-.scroll-hint {
-  font-size: 2rem;
+.tagline {
+  font-size: 1.3rem;
   color: #aaa;
-  animation: bounce 1s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
+  letter-spacing: 0.5px;
 }
 
 .metal-overlay {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 30px);
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.02) 0px,
+    rgba(255,255,255,0.02) 1px,
+    transparent 1px,
+    transparent 20px
+  );
   pointer-events: none;
 }
 
-/* ABOUT + FEATURES */
-.about {
-  background: linear-gradient(to bottom, #181818, #121212);
+/* FADE IN ON SCROLL */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
 }
 
-.features {
-  background: #151515;
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* FEATURES */
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -93,62 +98,78 @@ section {
 }
 
 .card:hover {
-  box-shadow: 0 0 10px rgba(255,255,255,0.1), inset 0 0 20px rgba(255,255,255,0.05);
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 0 12px rgba(255,255,255,0.05);
 }
 
-/* PRODUCTS */
+/* PRODUCTS DROPDOWN */
 .products {
   background: linear-gradient(to bottom, #141414, #0e0e0e);
-  padding: 6rem 2rem;
 }
 
 .section-title {
   font-size: 2.4rem;
-  color: #fff;
   margin-bottom: 0.5rem;
 }
 
 .section-sub {
-  font-size: 1.1rem;
-  color: #aaa;
-  margin-bottom: 3rem;
+  font-size: 1rem;
+  color: #999;
+  margin-bottom: 2rem;
 }
 
-.product-grid {
+.dropdown {
+  background: #181818;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  max-width: 700px;
+  margin: 1rem auto;
+  text-align: left;
+  color: white;
+}
+
+.dropdown summary {
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.dropdown-content {
+  padding-top: 1rem;
   display: flex;
+  gap: 1.5rem;
   flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
 }
 
 .product-card {
-  background: #1a1a1a;
-  border: 1px solid #2d2d2d;
-  border-radius: 12px;
-  padding: 2rem;
-  width: 300px;
+  background: #222;
+  padding: 1rem;
+  border-radius: 8px;
+  flex: 1 1 250px;
+  border: 1px solid #333;
+  box-shadow: inset 0 0 8px rgba(255,255,255,0.03);
   transition: all 0.3s ease;
-  box-shadow: inset 0 0 15px rgba(255,255,255,0.02);
 }
 
 .product-card:hover {
-  box-shadow: 0 0 15px rgba(255,255,255,0.08), inset 0 0 20px rgba(255,255,255,0.04);
-  transform: translateY(-6px);
+  transform: translateY(-4px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.07);
 }
 
 .product-card h3 {
-  color: white;
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.4rem;
 }
 
 .product-card p {
-  color: #ccc;
   font-size: 0.95rem;
+  color: #ccc;
 }
 
-/* NOTIFY */
+/* NOTIFY PANEL */
 .notify {
   background: #0a0a0a;
   display: flex;
@@ -211,8 +232,9 @@ section {
 
 /* FOOTER */
 footer {
-  background: #0a0a0a;
+  background: #000;
   padding: 1rem;
+  text-align: center;
   font-size: 0.9rem;
   color: #777;
 }
