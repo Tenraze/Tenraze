@@ -74,5 +74,18 @@
     <p>© 2025 Tenraze — Built to Last. All rights reserved.</p>
   </footer>
 
+  <!-- SCROLL SCRIPT -->
+  <script>
+    const fadeEls = document.querySelectorAll('.scroll-fade');
+    window.addEventListener('scroll', () => {
+      fadeEls.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
